@@ -2,8 +2,13 @@
 
 from peewee import *
 from flask_login import UserMixin
+from playhouse.db_url import connect
+import os
 
-DATABASE = SqliteDatabase('rivers.sqlite')
+if 'ON_HEROKU' in os.environ:
+    DATABASE = connect(os.environ.get('DATABASE_URL'))
+else:
+    DATABASE = SqliteDatabase('rivers.sqlite')
 
 #doesn't need to be numbers because only displaying
 class RiverSystem(Model):

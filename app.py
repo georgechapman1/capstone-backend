@@ -47,6 +47,10 @@ app.register_blueprint(user, url_prefix='/api/v1/user')
 def index():
     return 'This is going to be a mouthatruckinnnn bitch'
     
+
+if 'ON_HEROKU' in os.environ:
+    models.initialize()
+
 # Run the app when the program starts!
 if __name__ == '__main__':
     models.initialize()
