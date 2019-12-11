@@ -37,10 +37,10 @@ def after_request(response):
     g.db.close()
     return response
 
-CORS(river, origins=['http://localhost:3000'], supports_credentials=True)
+CORS(river, origins=['http://localhost:3000', 'https://happy-hydro-react.herokuapp.com'], supports_credentials=True)
 app.register_blueprint(river, url_prefix='/api/v1/rivers')
 
-CORS(user, origins=['http://localhost:3000'], supports_credentials=True)
+CORS(user, origins=['http://localhost:3000', 'https://happy-hydro-react.herokuapp.com'], supports_credentials=True)
 app.register_blueprint(user, url_prefix='/api/v1/user')
 
 @app.route('/')
