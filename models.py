@@ -19,7 +19,7 @@ class RiverSystem(Model):
     gauge_height = CharField(null=True, default='')
     discharge = CharField(null=True, default='')
     lt_mean_flow = CharField(null=True, default='')
-    lr_median_flow = CharField(null=True, default='')
+    lt_median_flow = CharField(null=True, default='')
 
     class Meta:
         database = DATABASE
